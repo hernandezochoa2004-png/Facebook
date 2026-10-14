@@ -33,7 +33,8 @@ private val FacebookDarkText = Color(0xFF1C1E21)
 @Composable
 
 //                        Pero es mejor crear la lambda de onCLickRegister porque toma toda la accion
-fun FacebookLoginScreen( onClickRegister :  () -> Unit) {
+//                             parametro 1                      parametro 2
+fun FacebookLoginScreen( onClickRegister :  () -> Unit, onCLickIniciarSesion : () -> Unit) {
     var email by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
     var passwordVisible by remember { mutableStateOf(false) }
@@ -86,7 +87,9 @@ fun FacebookLoginScreen( onClickRegister :  () -> Unit) {
 
         // Botón Iniciar sesión
         Button(
-            onClick = {  },
+            onClick = {
+                onCLickIniciarSesion()
+            },
             modifier = Modifier
                 .fillMaxWidth()
                 .height(48.dp),

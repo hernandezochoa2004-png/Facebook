@@ -33,17 +33,23 @@ class MainActivity : ComponentActivity() {
             ) {
 
                 composable(route = "login") {
-                    FacebookLoginScreen(onClickRegister = {
-                        myNavController.navigate(
-                            route = "register"
-                        )
-                    })
+
+                    FacebookLoginScreen(
+                        onClickRegister = { myNavController.navigate(route = "register")},
+
+                        onCLickIniciarSesion = { myNavController.navigate(route="Feed")}
+                    )
+
                 }
 
                 composable(route = "Register") {
                     FacebookRegisterScreen(
                         onClickBack = { myNavController.popBackStack() }
                     )
+                }
+
+                composable(route = "feed") {
+                    FeedScreen()
                 }
             }
 
