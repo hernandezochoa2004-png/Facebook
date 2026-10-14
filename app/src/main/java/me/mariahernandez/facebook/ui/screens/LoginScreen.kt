@@ -1,6 +1,5 @@
 package me.mariahernandez.facebook
 
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.layout.Arrangement
@@ -11,14 +10,12 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
@@ -34,7 +31,9 @@ private val FacebookDarkText = Color(0xFF1C1E21)
 
 //                       NavController sera el parametro de FaceboookLoginScreen
 @Composable
-fun FacebookLoginScreen( navController: NavController) {
+
+//                        Pero es mejor crear la lambda de onCLickRegister porque toma toda la accion
+fun FacebookLoginScreen( onClickRegister :  () -> Unit) {
     var email by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
     var passwordVisible by remember { mutableStateOf(false) }
@@ -145,7 +144,7 @@ fun FacebookLoginScreen( navController: NavController) {
         Button(
             onClick = {
 
-                navController.navigate("register")
+                onClickRegister()
 
 
             },

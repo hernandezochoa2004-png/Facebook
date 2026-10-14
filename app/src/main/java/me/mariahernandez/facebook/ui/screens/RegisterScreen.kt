@@ -14,14 +14,13 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun FacebookRegisterScreen( navController: NavController ) {
+fun FacebookRegisterScreen(  onClickBack : () -> Unit ) {
     var firstName by remember { mutableStateOf("") }
     var lastName by remember { mutableStateOf("") }
     var emailOrPhone by remember { mutableStateOf("") }
@@ -38,11 +37,11 @@ fun FacebookRegisterScreen( navController: NavController ) {
                 navigationIcon = {
                     IconButton(onClick = {
 
-                    navController.popBackStack()
+                    onClickBack()
 
 
                     }) {
-
+                        Text("Ir atras")
                     }
                 },
                 colors = TopAppBarDefaults.topAppBarColors(
