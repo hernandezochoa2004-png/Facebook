@@ -31,7 +31,7 @@ class MainActivity : ComponentActivity() {
                 startDestination = "Login",
                 modifier = Modifier.fillMaxSize() ) {
 
-                composable (route="login") {FacebookLoginScreen() }
+                composable (route="login") {FacebookLoginScreen(myNavController) }
 
                 composable(route="Register") {FacebookRegisterScreen()}
             }
